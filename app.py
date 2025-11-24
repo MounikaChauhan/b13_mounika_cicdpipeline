@@ -11,6 +11,8 @@ app = Flask(__name__)
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 app.secret_key = os.getenv("SECRET_KEY")
 
+print("Loaded MONGO_URI:", app.config["MONGO_URI"])
+
 mongo = PyMongo(app)
 
 # Home page -> list students
