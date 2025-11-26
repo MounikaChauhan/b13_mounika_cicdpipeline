@@ -6,8 +6,9 @@ on:
       - githubactions_submit
 
 jobs:
-  runs-on: ubuntu-latest
+
   install-dependencies:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -23,6 +24,7 @@ jobs:
           pip install -r requirements.txt
 
   build:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Build Application
