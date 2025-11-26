@@ -1,7 +1,7 @@
 name: Python CI/CD Pipeline
 
 on:
-  pull_request:
+  push:
     branches:
       - githubactions_submit
   workflow_dispatch:
