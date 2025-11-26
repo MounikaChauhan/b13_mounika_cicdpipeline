@@ -41,9 +41,24 @@ b. build the application using the commands
 d. perform the pytest
 e. send a mail for each build run
 
-Initially my script has failed with error module not found, I have installed modules manually on the target machine 
+Intially I have faced the issue with the module not found.
+
 ![alt text](images/image-6.png)
 ![alt text](images/image-7.png)
 
+This error, i have fixed by updating the requirement.txt with the missing modules to be imported.
 
+Second issue i have faced was not running the build command in background.
 
+I had to cancel the build and update the command using nohup to run in background.
+
+Email - configuration:
+
+To send the job status over mail,
+we need to set up the Email Notification Configuration:
+To set this up, initially i have created a App Password in the Gmail security 
+and in Manage Jenkins -> Configure System -> Email-Notification 
+
+Provide the required credentials and test the connection.
+
+![alt text](images/image-8.png)
