@@ -3,8 +3,7 @@ pipeline {
 
     environment {
         VENV = 'venv'
-        MONGO_URI = "${MONGO_URI}"
-        SECRET_KEY = "${SECRET_KEY}"
+        
     }
 
     stages {
@@ -23,7 +22,7 @@ pipeline {
                     pip install --upgrade pip
                     pip install -r requirements.txt
                     pip install pytest
-                    python app.py
+                    nohup python app.py &
 
                 '''
             }
@@ -37,19 +36,6 @@ pipeline {
                 '''
             }
         }
-
-        stage('Deploy to Staging') {
-            when {
-                expression { currentBuild.result == null }
-            }
-            steps {
-                sh '''
-                    echo "Deploying Flask app to staging server..."
-                    # Example deployment:
-                    # scp -r . ubuntu@staging-server:/var/www/flaskapp
-                '''
-            }
-        }
     }
 
     post {
@@ -57,14 +43,14 @@ pipeline {
             emailext (
                 subject: "Jenkins Build SUCCESS: ${env.JOB_NAME}",
                 body: "The build passed successfully.",
-                recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+                to: "mounikachauhan.30@gmail.com"
             )
         }
         failure {
             emailext (
                 subject: "Jenkins Build FAILED: ${env.JOB_NAME}",
                 body: "The build failed. Please check Jenkins.",
-                recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+                to: "mounikachauhan.30@gmail.com"
             )
         }
     }
