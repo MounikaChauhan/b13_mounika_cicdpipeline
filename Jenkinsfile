@@ -3,8 +3,8 @@ pipeline {
 
     environment {
         VENV = 'venv'
-        MONGO_URI = ${MONGO_URI}
-        SECRET_KEY = ${SECRET_KEY}
+        MONGO_URI = "${MONGO_URI}"
+        SECRET_KEY = "${SECRET_KEY}"
     }
 
     stages {

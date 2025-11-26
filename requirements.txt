@@ -2,3 +2,5 @@ Flask
 Flask-PyMongo 
 python-dotenv 
 bson
+pymongo[srv]
+dnspython
