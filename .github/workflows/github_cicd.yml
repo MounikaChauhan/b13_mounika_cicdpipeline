@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
       - githubactions_submit
+  workflow_dispatch:
 
 jobs:
 
