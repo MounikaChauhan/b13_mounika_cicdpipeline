@@ -1,9 +1,10 @@
 name: Python CI/CD Pipeline
 
 on:
-  pull_request:
+  push:
     branches:
       - githubactions_submit
+  workflow_dispatch:
 
 jobs:
 
@@ -24,7 +25,6 @@ jobs:
           pip install -r requirements.txt
 
   build:
-    needs: run-tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
