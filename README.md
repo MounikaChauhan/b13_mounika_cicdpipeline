@@ -15,3 +15,7 @@ go to the actions tab in github
 
 ![alt text](images/image-1.png)
 
+In this section you can see now, there are already 2 runs are done becuase of the trigger mentioned in the yml file 
+
+![alt text](images/image-2.png)
+
